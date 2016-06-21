@@ -16,25 +16,25 @@
 		<!-- data-none 代表是必填的，和required配合使用，如果为空，错误提示的元素属性名和data-none的值对应 -->
 		<!-- data-rules  代表有验证规则-->
 		<!-- data-confirm 代表是重复填写的，命名规则是 confirm-'要重复的表单的data-rulse的值' -->
-
+		
 		<form novalidate>
 			<div>
 				<label>用户名</label>
-				<input type= "text" placeholder="用户名" id="usernameValid" data-none="noUid" data-rules="username" required> </input>
+				<input type= "text" placeholder="用户名" data-name="usernameValid" data-none="noUid" data-rules="username" required> </input>
 			</div>	
 			<div>
 				<label>邮箱</label>
-				<input type= "text" placeholder="邮箱" id="emailValid" data-none="noEmail" data-rules="email" required> </input>
+				<input type= "email" placeholder="邮箱" data-name="emailValid" data-none="noEmail" data-rules="email" required> </input>
 				
 			</div>
 			<div>
 				<label>密码</label>
-				<input type= "text" placeholder="密码" id="passwordValid" data-none="noPassword" data-rules="password" required> </input>
+				<input type= "password" placeholder="密码" data-name="passwordValid" data-none="noPassword" data-rules="password" required> </input>
 				
 			</div>
 			<div>
 				<label>再次输入密码</label>
-				<input type= "text" placeholder="确认密码" id="confirmValid" data-none="noConfirm" data-confirm="confirm-password" required>	</input>
+				<input type= "password" placeholder="确认密码" data-none="noConfirm" data-confirm="confirm-password" required>	</input>
 			</div>
 			<div>
 				<!-- 错误提示 统一加属性data-info -->
@@ -60,9 +60,9 @@
 	<script type="text/javascript" src="js/custom.jquery.validate.js"></script>
 	<script type="text/javascript">
 
-		// 自定义验证的东西和验证规则
-		// --name-- 即id名
-		// --rules-- 即验证规则，正则
+		// 自定义验证的东西和验证规则(验证顺序)  验证必填顺序根据表单顺序
+		// --name-- 即data-name的值
+		// --rules-- 即对应的验证规则，正则
 		var signRules = [
 			{
 				"id" : "0",
@@ -79,9 +79,17 @@
 				"name" : "passwordValid",
 				"rules" : /^[0-9A-Za-z]{6,20}$/,
 			}
+			
 		]
-		// 调用函数，传入规则数组，提交按钮类名，和提示文案时间
-		jQuery().getForm(signRules, "submitBtn", "10000");
+		// 表单验证成功执行的函数
+		var alertFun = function (){
+			console.log("提交成功！！！");
+		}
+
+		// 调用函数，传入规则数组，提交按钮类名，和提示文案时间，表单验证成功执行的函数
+		jQuery().getForm(signRules, "submitBtn", "10000",alertFun)
+
+			
 
 	</script>
 </body>
