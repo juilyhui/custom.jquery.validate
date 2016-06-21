@@ -4,7 +4,7 @@
 // ================
 // 
 
-$.extend($.fn, {
+jQuery.extend($.fn, {
 	// 传入要验证的数组, 和提交按钮的类名, 提示文字时间
 	getForm: function(rules, btn, time) {
 		// 点击提交
