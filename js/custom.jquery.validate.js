@@ -5,36 +5,6 @@
 // 
 
 $(function() {
-
-	
-	// 自定义验证的东西和验证规则
-	// --name-- 即id名
-	// --rules-- 即验证规则，正则
-	var signRules = [
-		{
-			"id" : "0",
-			"name" : "usernameValid",
-			"rules" : /^[\u4e00-\u9fa50-9A-Za-z_-]{2,20}$/,
-		},
-		{
-			"id" : "1",
-			"name" : "emailValid",
-			"rules" : /^[0-9a-zA-Z]+@([0-9a-zA-Z]){2,20}$/,
-		},
-		{
-			"id" : "2",
-			"name" : "passwordValid",
-			"rules" : /^[0-9A-Za-z]{6,20}$/,
-		}
-	]
-	getForm(signRules, "submitBtn", "10000");
-
-
-
-
-
-
-
 	// 传入要验证的数组, 和提交按钮的类名, 提示文字时间
 	function getForm(rules, btn, time) {
 		// 点击提交
@@ -55,8 +25,6 @@ $(function() {
 			
 		})
 	};
-
-	
 
 	// 清空其他错误提示 提示文字消失
 	function clearInfo ($form){
@@ -90,8 +58,6 @@ $(function() {
 		return state;
 	}
 
-
-
 	// 表单规则验证
 	function checkForm($form, rules, time) {
 		console.log("CHECKFORM", $form)
@@ -116,7 +82,6 @@ $(function() {
         }
         return state;
 	}
-
 
 	// 再次输入密码之类的验证
 	function confirmFun($form, time) {
@@ -144,11 +109,5 @@ $(function() {
 		}
 		return state;
 	}
-
-
-
-
-
-
 
 })

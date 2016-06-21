@@ -55,6 +55,31 @@
 		</form>
 	</div>	
 	<!-- <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script> -->
+	<script type="text/javascript">
+		// 自定义验证的东西和验证规则
+		// --name-- 即id名
+		// --rules-- 即验证规则，正则
+		var signRules = [
+			{
+				"id" : "0",
+				"name" : "usernameValid",
+				"rules" : /^[\u4e00-\u9fa50-9A-Za-z_-]{2,20}$/,
+			},
+			{
+				"id" : "1",
+				"name" : "emailValid",
+				"rules" : /^[0-9a-zA-Z]+@([0-9a-zA-Z]){2,20}$/,
+			},
+			{
+				"id" : "2",
+				"name" : "passwordValid",
+				"rules" : /^[0-9A-Za-z]{6,20}$/,
+			}
+		];
+		// 调用函数，传入规则数组，提交按钮类名，和提示文案时间
+		getForm(signRules, "submitBtn", "10000");
+
+	</script>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/custom.jquery.validate.js"></script>
 </body>
