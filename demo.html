@@ -13,7 +13,9 @@
 </head>
 <body>
 	<div>
-		<!-- data-none 必填 -->
+		<!-- data-none 代表是必填的，和required配合使用，如果为空，错误提示的元素属性名和data-none的值对应 -->
+		<!-- data-rules  代表有验证规则-->
+		<!-- data-confirm 代表是重复填写的，命名规则是 confirm-'要重复的表单的data-rulse的值' -->
 
 		<form novalidate>
 			<div>
@@ -33,25 +35,27 @@
 			<div>
 				<label>再次输入密码</label>
 				<input type= "text" placeholder="确认密码" id="confirmValid" data-none="noConfirm" data-confirm="confirm-password" required>	</input>
-				<input type= "text" placeholder="确认密码" id="confirmValid" data-none="noConfirm" data-confirm="confirm-email" required>	</input>
 			</div>
 			<div>
-				<p class="error-info" noUid>用户名必填</p>
-				<p class="error-info" noEmail>邮箱必填</p>
-				<p class="error-info" noPassword>密码必填</p>
-				<p class="error-info" noConfirm>请确认密码</p>
-				<p class="error-info" username>昵称支持中/英文/数字/下划线/减号，长度2-20个字符</p>
-				<p class="error-info" email>请填写有效的邮箱</p>
-				<p class="error-info" password>请保持密码长度在6~20位字母或数字</p>
-				<p class="error-info" confirm-password>两次密码不一致</p>
-				<p class="error-info" confirm-email>两次邮箱不一致</p>
+				<!-- 错误提示 统一加属性data-info -->
+				<!-- 错误提示的另一个属性和表单元素里的 data-XXXX 属性值对应-->
+				<p class="error-info" data-info noUid>用户名必填</p>
+				<p class="error-info" data-info noEmail>邮箱必填</p>
+				<p class="error-info" data-info noPassword>密码必填</p>
+				<p class="error-info" data-info noConfirm>请确认密码</p>
+				<p class="error-info" data-info username>昵称支持中/英文/数字/下划线/减号，长度2-20个字符</p>
+				<p class="error-info" data-info email>请填写有效的邮箱</p>
+				<p class="error-info" data-info password>请保持密码长度在6~20位字母或数字</p>
+				<p class="error-info" data-info confirm-password>两次密码不一致</p>
+	
 			</div>
 			<div>
 				<input type="submit" class="submitBtn"></input>
 			</div>	
 		</form>
 	</div>	
-	<script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
-	<script src="custom.jquery.validate.js"></script>
+	<!-- <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script> -->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/custom.jquery.validate.js"></script>
 </body>
 </html>
